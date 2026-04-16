@@ -76,7 +76,8 @@ These methods are called directly on the `Array` constructor itself, not on an a
 ---
 
 1. ✅ **`new`**: Learn about what new is.
-1. ✅ **`Object`**: Learn about what object is.
+2. ✅ **`Object`**: Learn about what object is.
+3. **`switch statment`** learn switch statment.
 
 ---
 

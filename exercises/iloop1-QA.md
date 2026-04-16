@@ -248,13 +248,13 @@ numbers.forEach((num, index, arr) => {
 
 ```javascript
 const prices = [10.5, 20.0, 5.25];
-let totalPrice = 0;
 ```
 
 <details>
 <summary><b>Answer</b></summary>
 
 ```javascript
+let totalPrice = 0;
 prices.forEach((price) => (totalPrice += price));
 console.log(totalPrice); // 35.75
 ```
