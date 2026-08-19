@@ -17,7 +17,7 @@ new Array(arrayLength);
 
 #### Parameters:
 
-This method is unique because it changes behavior based on the input:
+This methodqqq is unique because it changes behavior based on the input:
 
 **Scenario A: Single Number Argument**
 

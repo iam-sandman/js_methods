@@ -11,6 +11,10 @@
 ```javascript
 const array1 = [1, 2, 3];
 const array2 = [4, 5, 6];
+
+/* Output:
+[ 1, 2, 3, 4, 5, 6 ]
+*/
 ```
 
 <details>
@@ -18,7 +22,7 @@ const array2 = [4, 5, 6];
 
 ```javascript
 const result = array1.concat(array2);
-console.log(result); // [ 1, 2, 3, 4, 5, 6 ]
+console.log(result);
 ```
 
 </details>
@@ -30,6 +34,10 @@ console.log(result); // [ 1, 2, 3, 4, 5, 6 ]
 ```javascript
 const activeUsers = ["Alice", "Bob"];
 const inactiveUsers = ["Charlie", "David"];
+
+/* Output:
+[ 'Alice', 'Bob', 'Charlie', 'David' ]
+*/
 ```
 
 <details>
@@ -37,7 +45,7 @@ const inactiveUsers = ["Charlie", "David"];
 
 ```javascript
 const allUsers = activeUsers.concat(inactiveUsers);
-console.log(allUsers); // [ 'Alice', 'Bob', 'Charlie', 'David' ]
+console.log(allUsers);
 ```
 
 </details>
@@ -50,6 +58,10 @@ console.log(allUsers); // [ 'Alice', 'Bob', 'Charlie', 'David' ]
 const arrA = ["a", "b"];
 const arrB = ["c", "d"];
 const arrC = ["e", "f"];
+
+/* Output:
+[ 'a', 'b', 'c', 'd', 'e', 'f' ]
+*/
 ```
 
 <details>
@@ -57,7 +69,7 @@ const arrC = ["e", "f"];
 
 ```javascript
 const combined = arrA.concat(arrB, arrC);
-console.log(combined); // [ 'a', 'b', 'c', 'd', 'e', 'f' ]
+console.log(combined);
 ```
 
 </details>
@@ -68,6 +80,9 @@ console.log(combined); // [ 'a', 'b', 'c', 'd', 'e', 'f' ]
 
 ```javascript
 const shoppingCart = ["milk", "eggs"];
+/* Output:
+[ 'milk', 'eggs', 'bread', 'cheese' ]
+*/
 ```
 
 <details>
@@ -75,7 +90,7 @@ const shoppingCart = ["milk", "eggs"];
 
 ```javascript
 const updatedCart = shoppingCart.concat("bread", "cheese");
-console.log(updatedCart); // [ 'milk', 'eggs', 'bread', 'cheese' ]
+console.log(updatedCart);
 ```
 
 </details>
@@ -86,6 +101,9 @@ console.log(updatedCart); // [ 'milk', 'eggs', 'bread', 'cheese' ]
 
 ```javascript
 const list = [1, 2];
+/* Output:
+[ 1, 2, 3, 4, 5, 6 ]
+*/
 ```
 
 <details>
@@ -93,7 +111,7 @@ const list = [1, 2];
 
 ```javascript
 const result = list.concat(3, [4, 5], 6);
-console.log(result); // [ 1, 2, 3, 4, 5, 6 ]
+console.log(result);
 // Note: concat flattens the array [4, 5] by one level
 ```
 

@@ -1,0 +1,63 @@
+<div class="dashboard-wrapper">
+    <header class="dash-header">
+        <h1>Welcome back, {{ current_user.name }}!</h1>
+        <span class="status-badge {{ current_user.status }}"
+            >{{ current_user.status|capitalize }}</span
+        >
+    </header>
+
+    <main class="dash-grid">
+        {% for user in user_list %}
+        <div class="user-card">
+            <div class="card-avatar">
+                {% set avatar_path = 'avatars/' + user.avatar %}
+                <img
+                    src="{{ url_for('static', filename='avatars/' ~ user.avatar) }}"
+                    alt="Avatar"
+                />
+            </div>
+
+            <div class="card-info">
+                <h3 class="username">{{ user.username }}</h3>
+                <p class="role">{{ user.role }}</p>
+
+                {% if user.is_active %}
+                <button class="btn btn-sm btn-success">Active</button>
+                {% else %}
+                <button class="btn btn-sm btn-danger">Suspended</button>
+                {% endif %}
+            </div>
+        </div>
+        {% else %}
+        <div class="empty-state">
+            <p>No users found in the database.</p>
+        </div>
+        {% endfor %}
+    </main>
+</div>
+
+<style>
+    /* Test your cross-window CSS targeting here! */
+
+    .dashboard-wrapper .dash-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1.5rem;
+        padding: 2rem;
+    }
+
+    /* Target the user card layout */
+    .dash-grid .user-card {
+        background-color: #073642; /* Solarized background */
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    /* Target deep inside the Jinja2 loop */
+    .user-card .card-info .username {
+        font-size: 1.25rem;
+        color: #268bd2; /* Solarized blue */
+        margin-bottom: 0.5rem;
+    }
+</style>
+{% endblock %}

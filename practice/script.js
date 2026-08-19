@@ -1,3 +1,15 @@
-const myNumbers = [1, 2, 3, 4, 5];
-const sum = myNumbers.reduce((acc, curr) => acc + curr, 0);
-console.log(sum);
+const playerHealth = 0;
+
+switch (true) {
+  case playerHealth >= 80:
+    console.log("Play is in great shape.");
+    break;
+  case playerHealth >= 40:
+    console.log("Player is wounded.");
+    break;
+  case playerHealth <= 0:
+    console.log("Player is dead");
+    break;
+  default:
+    console.log("health unknown");
+}

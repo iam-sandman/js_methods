@@ -130,7 +130,6 @@ console.log(numbers.at(-4)); // Output: undefined (index -4 is out of bounds)
 
 1.  **When Simply Accessing from the Beginning with a Known Positive Index:**
     For `arr[0]`, `arr[1]`, etc., the traditional bracket notation (`[]`) is perfectly clear, widely understood, and typically has negligible (if any) performance difference. `at()` adds a function call overhead, however minor.
-
     - **Use `[]` instead:**
       ```javascript
       const products = ["TV", "Phone"];
@@ -141,7 +140,6 @@ console.log(numbers.at(-4)); // Output: undefined (index -4 is out of bounds)
 
 2.  **When Browser Compatibility for Older Environments is a Concern (Without Polyfill):**
     `at()` is a relatively new method (ES2022). If you're targeting very old browsers or environments that don't transpile newer JavaScript features, `at()` might not be available without a polyfill. In such cases, `arr[arr.length - n]` remains the compatible solution for negative indexing.
-
     - **Fallback for older environments:**
       ```javascript
       const myArr = [1, 2, 3];
@@ -150,7 +148,6 @@ console.log(numbers.at(-4)); // Output: undefined (index -4 is out of bounds)
 
 3.  **When You Need to Modify an Element:**
     `at()` is only for _accessing_ elements. You cannot use it to assign a new value to an index. For modification, you must use bracket notation.
-
     - **Use `[]` for modification:**
       ```javascript
       const items = ["a", "b", "c"];

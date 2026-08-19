@@ -1,8 +1,38 @@
-body {
-  font-family: Arial;
-  color: #dc143c;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-h1 {
-  color: #ffdc80;
-  font-size: 72px;
+body {
+  background: blue;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 100px 100px 100px;
+}
+
+.grid-item-1 {
+  background-color: rgba(146, 206, 172, 0.5);
+}
+.grid-item-2 {
+  background-color: #fcaf45;
+}
+.grid-item-3 {
+  background-color: #c13584;
+}
+.grid-item-4 {
+  background-color: #fd1d1d;
+}
+.grid-item-4 {
+  background-color: #f47321;
+}
+.grid-item-6 {
+  background-color: #004b91;
+}
+.grid-item-7 {
+  background-color: #ff8c00;
+}
+.grid-item-8 {
+  background-color: #ff69b4;
 }

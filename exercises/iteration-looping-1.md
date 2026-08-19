@@ -73,7 +73,7 @@ const colors = ["red", "green", "blue", "yellow"];
 
 // access elements at the end of an array
 // Equivalent to colors[colors.length - 1]
-// output is red
+// output is yellow
 
 // access elements at the second last of an array
 // Equivalent to colors[colors.length - 2]

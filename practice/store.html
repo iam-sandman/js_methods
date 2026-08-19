@@ -1,0 +1,62 @@
+{% extends "base.html" %} {% block content %}
+<main class="storefront">
+    <header class="store-header">
+        <h1>{{ category.name }}</h1>
+        <p>Showing {{ products|length }} items.</p>
+    </header>
+
+    <section class="product-grid">
+        {% for product in products %}
+        <article class="product-card">
+            <div class="card-image">
+                <img src="{{ product.image_url }}" alt="{{ product.name }}" />
+            </div>
+
+            <div class="card-details">
+                <h2 class="product-name">{{ product.name }}</h2>
+                <span class="price">${{ product.price }}</span>
+
+                {% if product.on_sale %}
+                <span class="badge sale">Sale!</span>
+                {% endif %}
+            </div>
+
+            <footer class="card-footer">
+                <button class="btn-add">Add to Cart</button>
+            </footer>
+        </article>
+        {% empty %}
+        <p>No products found.</p>
+        {% endfor %}
+    </section>
+</main>
+
+<style>
+    /* Put your cursor on these rules to test the Django integration! */
+
+    /* Test 1: The Container Scope */
+    .storefront .product-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+
+    /* Test 2: Deep Targeting *Across* the Django Loop */
+    .product-grid .product-card .card-details {
+        padding: 1rem;
+        background: #2a2a2a;
+    }
+
+    /* Test 3: The CSS Math Engine Test */
+    .product-grid .product-card:nth-child(even) {
+        background-color: #333333;
+        border-left: 4px solid #42b883;
+    }
+
+    /* Test 4: Adjacent Sibling Math */
+    .card-details .product-name + .price {
+        font-weight: bold;
+        color: #ffcc00;
+    }
+</style>
+{% endblock %}

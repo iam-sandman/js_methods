@@ -330,3 +330,86 @@ console.log(doubled); // Output: [2, 4, 6]
 ```
 
 `push()` is a fundamental workhorse for mutable array manipulation in JavaScript. It's efficient for adding elements to the end and is indispensable for building arrays iteratively. Just remember its in-place nature and choose alternative methods like spread syntax or `concat()` when immutability is required.
+
+First, a quick but important clarification to prevent a very common error: **The `.push()` method belongs to Arrays, not Objects.** If you try to use `.push()` directly on a standard JavaScript object, you will get a `TypeError: obj.push is not a function`.
+
+However, arrays and objects interact with `.push()` all the time in a few specific ways. Here are the three most common scenarios of how they work together, along with how to _actually_ add data to an object.
+
+### 1. Pushing an Object into an Array
+
+This is the most common use case. You have an array that acts as a list, and you want to add a new object to the end of that list.
+
+```javascript
+const shoppingCart = [
+  { item: "Apples", price: 2 },
+  { item: "Bread", price: 3 },
+];
+
+const newItem = { item: "Milk", price: 4 };
+
+// Add the object to the end of the array
+shoppingCart.push(newItem);
+
+console.log(shoppingCart);
+/* Output:
+[
+  { item: 'Apples', price: 2 },
+  { item: 'Bread', price: 3 },
+  { item: 'Milk', price: 4 }
+]
+*/
+```
+
+### 2. Pushing into an Array that lives _inside_ an Object
+
+Often, an object will have properties that contain arrays. You can access that specific property and use `.push()` on it. This is exactly what was happening in your previous grouping code (`acc[key].push(person)`).
+
+```javascript
+const company = {
+  name: "Tech Corp",
+  employees: [], // This property is an array
+};
+
+// Access the array inside the object, then push
+company.employees.push({ name: "Eve", role: "Engineer" });
+company.employees.push({ name: "Sam", role: "Designer" });
+
+console.log(company.employees);
+/* Output:
+[
+  { name: 'Eve', role: 'Engineer' },
+  { name: 'Sam', role: 'Designer' }
+]
+*/
+```
+
+### 3. How to add data to an Object (Since `.push()` doesn't work)
+
+If you are trying to add a new key-value pair to a plain object, you do not use `.push()`. Instead, you use **dot notation** or **bracket notation**.
+
+```javascript
+const user = {
+  username: "coder123",
+  status: "active",
+};
+
+// ❌ WRONG: This will throw an error
+// user.push({ email: "test@test.com" });
+
+// ✅ RIGHT (Dot Notation): Best when you know the exact name of the key
+user.email = "test@test.com";
+
+// ✅ RIGHT (Bracket Notation): Best when the key is stored in a variable
+const propertyName = "age";
+user[propertyName] = 28;
+
+console.log(user);
+/* Output:
+{
+  username: 'coder123',
+  status: 'active',
+  email: 'test@test.com',
+  age: 28
+}
+*/
+```

@@ -315,13 +315,12 @@ console.log(formattedOutput);
 
 **Output:**
 
-```text
+```js
 [
-  { name: 'Presentation', date: 'Sat Jul 26 2025' },
-  { name: 'Workshop', date: 'Sun Jul 27 2025' },
-  { name: 'Meeting', date: 'Mon Jul 28 2025' }
-]
-
+  { name: "Presentation", date: "Sat Jul 26 2025" },
+  { name: "Workshop", date: "Sun Jul 27 2025" },
+  { name: "Meeting", date: "Mon Jul 28 2025" },
+];
 ```
 
 ---

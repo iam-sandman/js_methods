@@ -146,28 +146,24 @@ console.log(items); // Output: ['Y', 'Y', 'Y', 'Z', 'Z']
 3.  **When Populating an Array with Dynamic or Sequential Values:**
     `fill()` is for static values. If you need to populate an array with values that depend on their index or a sequence, use `Array.from()` or `map()`. - **Use `Array.from()` for sequential/dynamic values:**
 
-        <!-- NOTE: comeback when Array.from Done
+    ```javascript
+    // DON'T:
+    const sequence = new Array(5).fill().forEach((_, i) => i + 1); // Doesn't work like this
 
-          ```javascript
-          // DON'T:
-          // const sequence = new Array(5).fill().forEach((_, i) => i + 1); // Doesn't work like this
+    // DO:
+    const sequence = Array.from({ length: 5 }, (_, i) => i + 1);
+    console.log(sequence); // Output: [1, 2, 3, 4, 5]
 
-          // DO:
-          const sequence = Array.from({ length: 5 }, (_, i) => i + 1);
-          console.log(sequence); // Output: [1, 2, 3, 4, 5]
-
-          // Or map after initial fill for simpler cases:
-          const randomNumbers = new Array(3).fill(null).map(() => Math.random());
-          console.log(randomNumbers); // Output: [0.123..., 0.456..., 0.789...] (random numbers)
-          ```
+    // Or map after initial fill for simpler cases:
+    const randomNumbers = new Array(3).fill(null).map(() => Math.random());
+    console.log(randomNumbers); // Output: [0.123..., 0.456..., 0.789...] (random numbers)
+    ```
 
 ---
 
 ### Advanced Uses with Examples:
 
 **1. Creating a Fixed-Size Buffer/Pool (e.g., for object reuse):**
-
-<!-- NOTE comeback when classes are done -->
 
 ```javascript
 class ObjectPool {
@@ -243,8 +239,6 @@ console.log(
 
 **2. Clearing a Section of a Pre-allocated Array (e.g., for a board game):**
 
-<!-- NOTE Array.from comeback when learnt -->
-
 ```javascript
 const chessBoard = Array(64).fill(null); // Initialize 8x8 board
 
@@ -273,8 +267,6 @@ console.log(
 **3. Initializing a Matrix (2D Array) (Careful with Shallow Copy\!):**
 
 You can use `fill()` to initialize rows, but then `map()` to ensure each row is a _unique_ array.
-
-<!-- NOTE Array.from comeback when learnt -->
 
 ```javascript
 // Creates a 3x3 matrix initialized with 0s
